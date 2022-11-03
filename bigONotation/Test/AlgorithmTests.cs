@@ -54,14 +54,25 @@ namespace bigONotation.Test
         [InlineData(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 }, 3)]
         [InlineData(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 }, 4)]
         [InlineData(new int[] { 1, 2, 7, 4, 5, 6, 3, 8 }, 7)]
-        public void When_call_BinarySearch_should_return_expectedResult(int[] array , int value )
+        public void When_call_BinarySearch_should_return_expectedResult(int[] array, int value)
         {
             // Given
-            
+
             // When
             var result = Logarithmic.BinarySearch(array, value);
             // Then
             result.Should().Be(value);
+        }
+        [Theory]
+        [InlineData(new int[] { 9, 3, 2, 1, 5, 8 }, new int[] { 1, 2, 3, 5, 8, 9 })]
+        public void When_call_bubbleSort_Should_return_expected_resuld(int[] parameters, int[] expected)
+        {
+            // Given
+
+            // When
+            int[] result = Polinomial.BubbleSort(parameters);
+            // Then
+            result.Should().BeEquivalentTo(expected, options => options.WithStrictOrdering());
         }
     }
 }
